@@ -37,4 +37,17 @@ public class AttendanceController {
                 map(attendanceResponse -> ResponseEntity.ok().body(attendanceResponse))
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Attendance> removeAttendanceById(@PathVariable(value = "id") Long id) {
+        Optional<Attendance> attendance = attendanceService.findAttendanceById(id);
+
+        if (attendance.isPresent()) {
+            attendanceService.removeAttendanceById(attendance.get());
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
 }

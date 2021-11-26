@@ -16,7 +16,7 @@ public class AttendanceService {
     @Autowired
     private AttendanceRepository attendanceRepository;
 
-    public List<Attendance> attendanceListAll () {
+    public List<Attendance> attendanceListAll() {
         return attendanceRepository.findAll();
     }
 
@@ -26,5 +26,9 @@ public class AttendanceService {
 
     public Optional<Attendance> findAttendanceById(Long id) {
         return attendanceRepository.findById(id);
+    }
+
+    public void removeAttendanceById(Attendance attendance) {
+        attendanceRepository.delete(attendance);
     }
 }
