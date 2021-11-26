@@ -1,5 +1,6 @@
 package com.atendimentoapi.petapi.model;
 
+import com.atendimentoapi.petapi.enums.AttendanceStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,8 +23,8 @@ public class Attendance {
     @Column(nullable = false)
     private String pet;
 
-    @Column(nullable = false)
-    private String status;
+    @Column()
+    private AttendanceStatus status = AttendanceStatus.EM_ATENDIMENTO;
 
     @Column(nullable = false)
     private String observations;

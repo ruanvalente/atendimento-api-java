@@ -18,4 +18,8 @@ public class AttendanceService {
     public List<Attendance> attendanceListAll () {
         return attendanceRepository.findAll();
     }
+
+    public Attendance createAttendance(Attendance attendance) {
+        return attendanceRepository.save(attendance);
+    }
 }
